@@ -20,14 +20,14 @@
 | [**ChatGPT Tasks**](https://chatgpt.com/) · [**Gemini Scheduled**](https://gemini.google.com/) | Native AI schedulers — quick-link targets and pattern inspiration. |
 
 > [!NOTE]
-> TaskHub already ships **AI Pack** templates that run Claude Code and Codex unattended (headless, scoped permissions, captured output). These sources are for building your own or adapting a prompt into a scheduled run.
+> Cronsole already ships **AI Pack** templates that run Claude Code and Codex unattended (headless, scoped permissions, captured output). These sources are for building your own or adapting a prompt into a scheduled run.
 
 ---
 
 <p align="center">
   <a href="../README.md">← Resources</a> ·
   <a href="../../../README.md">Registry root</a> ·
-  <a href="https://mikesailab.com/taskhub-registry/">Browse the gallery</a>
+  <a href="https://mikesailab.com/cronsole-registry/">Browse the gallery</a>
 </p>
 
 <p align="right">(<a href="#ai-top">back to top</a>)</p>

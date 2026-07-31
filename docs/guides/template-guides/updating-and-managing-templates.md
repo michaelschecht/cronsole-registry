@@ -14,11 +14,11 @@
 
 ## Two kinds of templates
 
-TaskHub's catalog is a mix of two things, and they update differently:
+Cronsole's catalog is a mix of two things, and they update differently:
 
 | Kind | Where it comes from | How it updates |
 |:---|:---|:---|
-| **Built-in (`core`)** | Ships with TaskHub; auto-synced from the registry. | **Automatically.** TaskHub re-syncs the curated core from the registry on a schedule — improvements land on their own, and a template dropped from core is removed. You don't manage these. |
+| **Built-in (`core`)** | Ships with Cronsole; auto-synced from the registry. | **Automatically.** Cronsole re-syncs the curated core from the registry on a schedule — improvements land on their own, and a template dropped from core is removed. You don't manage these. |
 | **Imported / custom** | You [imported](importing-templates.md) it, or used **Save as template**. | **You manage it.** It stays exactly as you left it and is never touched by the automatic sync. |
 
 > [!NOTE]
@@ -28,7 +28,7 @@ TaskHub's catalog is a mix of two things, and they update differently:
 
 There's no in-app template editor — you update by **re-importing**:
 
-1. [**Export**](exporting-templates.md) the template you want to change: `GET /api/templates/export?id=<id>` (or grab a fresh copy from the [gallery](https://mikesailab.com/taskhub-registry/)).
+1. [**Export**](exporting-templates.md) the template you want to change: `GET /api/templates/export?id=<id>` (or grab a fresh copy from the [gallery](https://mikesailab.com/cronsole-registry/)).
 2. Edit the JSON — the command, `parameters`, schedule, tags, etc. Keep the **same `id`**.
 3. [**Import**](importing-templates.md) it again. Because import **upserts by `id`**, your edited version replaces the old one in place. The toast will say **`0 added, 1 updated, …`**.
 
@@ -40,7 +40,7 @@ There's no in-app template editor — you update by **re-importing**:
 | Action | How | Result |
 |:---|:---|:---|
 | **Add from the gallery** | [Import](importing-templates.md) a downloaded template. | A new template in your catalog. |
-| **Save a real task as a template** | In a task's detail modal, click **Save as template**. | TaskHub derives a Registry v1 template from that task's command + schedule and adds it (with a fresh id). |
+| **Save a real task as a template** | In a task's detail modal, click **Save as template**. | Cronsole derives a Registry v1 template from that task's command + schedule and adds it (with a fresh id). |
 | **Favorite** | Click the ⭐ on a card / row. | Pins it to the top and to the **Favorites** filter (per-user; never changes the shared catalog). |
 
 ## Removing a template
@@ -50,7 +50,7 @@ There's no in-app template editor — you update by **re-importing**:
 
 ## Proposing a change to the public registry
 
-Found a bug in a built-in template, or want a new one added for everyone? **[Open an issue](https://github.com/michaelschecht/taskhub-registry/issues)** describing the automation (trigger, command, parameters, target) — or attach an [exported](exporting-templates.md) JSON. See also the [Template Resources](../../resources/README.md) for good sources to adapt.
+Found a bug in a built-in template, or want a new one added for everyone? **[Open an issue](https://github.com/michaelschecht/cronsole-registry/issues)** describing the automation (trigger, command, parameters, target) — or attach an [exported](exporting-templates.md) JSON. See also the [Template Resources](../../resources/README.md) for good sources to adapt.
 
 ---
 

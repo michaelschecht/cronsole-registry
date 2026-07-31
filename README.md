@@ -1,9 +1,9 @@
 <a id="readme-top"></a>
 
-<h1 align="center">📚 TaskHub Template Registry</h1>
+<h1 align="center">📚 Cronsole Template Registry</h1>
 
 <p align="center">
-  <em>The public, versioned catalog of automation templates for TaskHub —<br>served as static JSON over a CDN, integrity-checked, and fetched at runtime.</em>
+  <em>The public, versioned catalog of automation templates for Cronsole —<br>served as static JSON over a CDN, integrity-checked, and fetched at runtime.</em>
 </p>
 
 <p align="center">
@@ -11,17 +11,17 @@
 </p>
 
 <p align="center">
-  <a href="https://mikesailab.com/taskhub-registry/index.json">Browse the catalog</a>
+  <a href="https://mikesailab.com/cronsole-registry/index.json">Browse the catalog</a>
   ·
-  <a href="https://github.com/michaelschecht/taskhub-registry/issues">Report an issue</a>
+  <a href="https://github.com/michaelschecht/cronsole-registry/issues">Report an issue</a>
   ·
-  <a href="https://github.com/michaelschecht/taskhub-registry/issues">Request a template</a>
+  <a href="https://github.com/michaelschecht/cronsole-registry/issues">Request a template</a>
 </p>
 
 <p align="center">
-  <a href="https://mikesailab.com/taskhub-registry/index.json"><img src="https://img.shields.io/badge/served_via-GitHub_Pages-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white" alt="Served via GitHub Pages"></a>
+  <a href="https://mikesailab.com/cronsole-registry/index.json"><img src="https://img.shields.io/badge/served_via-GitHub_Pages-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white" alt="Served via GitHub Pages"></a>
   <img src="https://img.shields.io/badge/schema-Registry_v1-8B5CF6?style=for-the-badge" alt="Schema: Registry v1">
-  <a href="https://mikesailab.com/taskhub-registry/"><img src="https://img.shields.io/badge/templates-55-0078D4?style=for-the-badge" alt="55 templates"></a>
+  <a href="https://mikesailab.com/cronsole-registry/"><img src="https://img.shields.io/badge/templates-55-0078D4?style=for-the-badge" alt="55 templates"></a>
 </p>
 
 <p align="center">
@@ -34,28 +34,28 @@
 
 ## 🧩 What this is
 
-This repository is the **decoupled catalog** for [TaskHub](https://mikesailab.com) — the unified scheduled-task manager. Instead of baking its template library into the app (and needing a redeploy to change it), TaskHub reads the catalog from **here**, at runtime.
+This repository is the **decoupled catalog** for [Cronsole](https://mikesailab.com) — the unified scheduled-task manager. Instead of baking its template library into the app (and needing a redeploy to change it), Cronsole reads the catalog from **here**, at runtime.
 
 It's just data: an `index.json` manifest plus one JSON file per template. It is served as static files over **GitHub Pages** at:
 
-> **`https://mikesailab.com/taskhub-registry`**
+> **`https://mikesailab.com/cronsole-registry`**
 
-A running TaskHub backend points `TEMPLATE_REGISTRY_URL` at that address, fetches the catalog, verifies every file, and syncs it in — so publishing a template is a push to this repo, never an app deploy.
+A running Cronsole backend points `TEMPLATE_REGISTRY_URL` at that address, fetches the catalog, verifies every file, and syncs it in — so publishing a template is a push to this repo, never an app deploy.
 
 ## 📦 What's inside
 
 | File | What it holds |
 |:---|:---|
-| [**`index.json`**](https://mikesailab.com/taskhub-registry/index.json) | The manifest: `registryVersion`, `updatedAt`, and one lightweight entry per template (id, name, description, category, tags, runtime, os, `compatibleTargets`, the file `path`, and its `sha256`). Enough to render a catalog without fetching every file. |
+| [**`index.json`**](https://mikesailab.com/cronsole-registry/index.json) | The manifest: `registryVersion`, `updatedAt`, and one lightweight entry per template (id, name, description, category, tags, runtime, os, `compatibleTargets`, the file `path`, and its `sha256`). Enough to render a catalog without fetching every file. |
 | **`templates/<id>.json`** | One full [Registry v1](#-template-schema-registry-v1) template per file — the abstract Trigger → Action definition plus its `{{placeholder}}` parameters. |
 | `.nojekyll` | Tells GitHub Pages to serve the files raw (no Jekyll processing). |
 | `.gitattributes` | Pins every file to **LF** line endings — the `sha256` is computed over exact bytes, so a CRLF rewrite would break every checksum. |
 
 Today the catalog holds **55 templates** — 20 parameterized script starters (PowerShell / Bash / Python / Node / executable / HTTP / …), use-case patterns (database backup, system cleanup, news digest, PR triage), the **Developer Pack** (git / npm / .NET / Docker), the **AI Pack** (Claude Code + Codex unattended runs), and an **Extended Pack** (system/backup/cleanup/monitoring/data/notification — service restart, folder-zip & robocopy backups, disk/ping monitors, rclone cloud sync, Discord webhook, and more).
 
-Each entry is flagged **`core`** or extended. A small curated **core** ships built into TaskHub and auto-syncs into every install by default; the rest are **extended** — browse them here and import the ones you want.
+Each entry is flagged **`core`** or extended. A small curated **core** ships built into Cronsole and auto-syncs into every install by default; the rest are **extended** — browse them here and import the ones you want.
 
-## 🔌 How TaskHub consumes it
+## 🔌 How Cronsole consumes it
 
 The backend's `RegistryCatalogSource` treats this catalog as **untrusted, executable content** and defends accordingly:
 
@@ -63,10 +63,10 @@ The backend's `RegistryCatalogSource` treats this catalog as **untrusted, execut
 2. Fetch each `templates/<id>.json`.
 3. **Verify each file's bytes against the index `sha256`** — any mismatch aborts the whole fetch (no partial or unverified seeding).
 4. Validate each template against the Registry v1 schema.
-5. Cache the result, and **fall back to the app's compiled-in bundled snapshot** on any failure (offline, 404, bad checksum) — so TaskHub always has a working catalog.
+5. Cache the result, and **fall back to the app's compiled-in bundled snapshot** on any failure (offline, 404, bad checksum) — so Cronsole always has a working catalog.
 
 > [!NOTE]
-> A template is **target-agnostic**. It describes the automation abstractly (a trigger + an action) and is *compiled* to a target's native config at apply time. Only Windows Task Scheduler and TaskHub-native targets have real compilers today; a declared-but-uncompiled target is an honest "copy to set up manually" path, never a silent failure.
+> A template is **target-agnostic**. It describes the automation abstractly (a trigger + an action) and is *compiled* to a target's native config at apply time. Only Windows Task Scheduler and Cronsole-native targets have real compilers today; a declared-but-uncompiled target is an honest "copy to set up manually" path, never a silent failure.
 
 <a id="-template-schema-registry-v1"></a>
 
@@ -108,19 +108,19 @@ Each `templates/<id>.json` is a self-contained template:
 
 ## 🛠️ How this repo is maintained
 
-This repo is a **published mirror**. The source of truth is the TaskHub app's `registry/` folder (generated from a bundled catalog and drift-tested in CI); a publish script copies `index.json` + `templates/` here and pushes, and GitHub Pages rebuilds within about a minute.
+This repo is a **published mirror**. The source of truth is the Cronsole app's `registry/` folder (generated from a bundled catalog and drift-tested in CI); a publish script copies `index.json` + `templates/` here and pushes, and GitHub Pages rebuilds within about a minute.
 
 That means **template content here is generated, not hand-edited** — an edit to `index.json` or a `templates/*.json` file would be overwritten on the next publish (and would break its `sha256`). This repo *does* own its own `README.md`, `.nojekyll`, and `.gitattributes`.
 
-To propose a new template or a change, **[open an issue](https://github.com/michaelschecht/taskhub-registry/issues)** describing the automation (trigger, command, parameters, target).
+To propose a new template or a change, **[open an issue](https://github.com/michaelschecht/cronsole-registry/issues)** describing the automation (trigger, command, parameters, target).
 
 ## 🖼️ Browse the gallery
 
-A **browsable gallery site** over this registry is live at **[`mikesailab.com/taskhub-registry`](https://mikesailab.com/taskhub-registry/)** — search and filter by category / platform / runtime / tag / availability, preview any template, then **Download** or **Copy** its JSON and **import** it into your local TaskHub (Templates → Import). Built-in `core` templates are badged so you can see what you already have vs. what to add.
+A **browsable gallery site** over this registry is live at **[`mikesailab.com/cronsole-registry`](https://mikesailab.com/cronsole-registry/)** — search and filter by category / platform / runtime / tag / availability, preview any template, then **Download** or **Copy** its JSON and **import** it into your local Cronsole (Templates → Import). Built-in `core` templates are badged so you can see what you already have vs. what to add.
 
 ## 🗺️ Where this is heading
 
-This repo is the backing store for the gallery and the natural home for community-contributed templates. Next up: a one-click "Add to my TaskHub" handoff (today it's Download/Copy → Import), and a curated-core-vs-gallery split so an install ships only the essentials and pulls the rest on demand — **already in place** via the `core` flag.
+This repo is the backing store for the gallery and the natural home for community-contributed templates. Next up: a one-click "Add to my Cronsole" handoff (today it's Download/Copy → Import), and a curated-core-vs-gallery split so an install ships only the essentials and pulls the rest on demand — **already in place** via the `core` flag.
 
 ## 🔗 Links
 
@@ -128,14 +128,14 @@ This repo is the backing store for the gallery and the natural home for communit
 |:---|:---|
 | [**📚 Template Guides**](docs/guides/README.md) | How to import, apply, export, and update templates. |
 | [**🧰 Resources**](docs/resources/README.md) | Where to find & adapt automation templates. |
-| [**Live catalog (index.json)**](https://mikesailab.com/taskhub-registry/index.json) | The manifest this registry serves. |
-| [**Issues**](https://github.com/michaelschecht/taskhub-registry/issues) | Report a problem or request/propose a template. |
-| [**TaskHub**](https://mikesailab.com) | The app this catalog powers. |
+| [**Live catalog (index.json)**](https://mikesailab.com/cronsole-registry/index.json) | The manifest this registry serves. |
+| [**Issues**](https://github.com/michaelschecht/cronsole-registry/issues) | Report a problem or request/propose a template. |
+| [**Cronsole**](https://mikesailab.com) | The app this catalog powers. |
 
 ---
 
 <p align="center">
-  <sub>Static template registry for <a href="https://mikesailab.com">TaskHub</a> · served via GitHub Pages · content-addressed with sha256</sub>
+  <sub>Static template registry for <a href="https://mikesailab.com">Cronsole</a> · served via GitHub Pages · content-addressed with sha256</sub>
 </p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

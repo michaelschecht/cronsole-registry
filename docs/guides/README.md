@@ -3,7 +3,7 @@
 <h1 align="center">📚 Template Guides</h1>
 
 <p align="center">
-  <em>How to use TaskHub templates end to end —<br>find, import, apply, export, and keep them up to date.</em>
+  <em>How to use Cronsole templates end to end —<br>find, import, apply, export, and keep them up to date.</em>
 </p>
 
 <p align="center">
@@ -15,11 +15,11 @@
 
 ## 🧭 Start here
 
-A **template** is a reusable, parameterized automation — a schedule + a command with `{{placeholders}}`. TaskHub ships a small curated set built in, and this **gallery** holds the rest. These guides walk the full lifecycle.
+A **template** is a reusable, parameterized automation — a schedule + a command with `{{placeholders}}`. Cronsole ships a small curated set built in, and this **gallery** holds the rest. These guides walk the full lifecycle.
 
 | Guide | What it covers |
 |:---|:---|
-| [**📥 Importing templates**](template-guides/importing-templates.md) | Find a template in the [gallery](https://mikesailab.com/taskhub-registry/) and add it to your TaskHub. |
+| [**📥 Importing templates**](template-guides/importing-templates.md) | Find a template in the [gallery](https://mikesailab.com/cronsole-registry/) and add it to your Cronsole. |
 | [**▶️ Applying templates**](template-guides/applying-templates.md) | Turn a template into a real, running scheduled task by filling in its parameters. |
 | [**📤 Exporting templates**](template-guides/exporting-templates.md) | Download your templates as JSON to back up, share, or hand-edit. |
 | [**🔄 Updating & managing templates**](template-guides/updating-and-managing-templates.md) | How built-in vs. imported templates update, editing via re-import, favorites, and Save-as-template. |
@@ -30,21 +30,21 @@ A **template** is a reusable, parameterized automation — a schedule + a comman
 ## 🧩 How it fits together
 
 ```
-Gallery (this registry)  ──Download / Copy──►  TaskHub · Templates ──Import──►  your catalog
+Gallery (this registry)  ──Download / Copy──►  Cronsole · Templates ──Import──►  your catalog
                                                                                     │
                                                                           ──Apply── ▼
                                                                             a real scheduled task
 ```
 
-- **Built-in (`core`)** templates ship with TaskHub and update themselves from the registry — you don't import them.
+- **Built-in (`core`)** templates ship with Cronsole and update themselves from the registry — you don't import them.
 - **Everything else** is browse-and-import: pick what you want from the gallery, import it, and it stays in your catalog until you remove it.
 
 ---
 
 <p align="center">
-  <a href="../../README.md">← TaskHub Template Registry</a> ·
+  <a href="../../README.md">← Cronsole Template Registry</a> ·
   <a href="../resources/README.md">Template Resources</a> ·
-  <a href="https://mikesailab.com/taskhub-registry/">Browse the gallery</a>
+  <a href="https://mikesailab.com/cronsole-registry/">Browse the gallery</a>
 </p>
 
 <p align="right">(<a href="#guides-top">back to top</a>)</p>

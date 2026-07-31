@@ -14,20 +14,20 @@
 
 | Resource | What you'll find |
 |:---|:---|
-| [**crontab.guru**](https://crontab.guru/) | Sanity-check and design 5-field cron expressions (TaskHub stores cron in UTC). |
+| [**crontab.guru**](https://crontab.guru/) | Sanity-check and design 5-field cron expressions (Cronsole stores cron in UTC). |
 | [**Windows Task Scheduler docs**](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page) | The platform the Windows agent wraps — triggers, actions, principals. |
 | [**systemd timers (Arch Wiki)**](https://wiki.archlinux.org/title/Systemd/Timers) | Linux scheduling patterns (`OnCalendar`) — good source of interval/calendar ideas. |
 | [**launchd.info**](https://www.launchd.info/) | macOS `launchd` reference — the target for the (planned) macOS agent. |
 
 > [!TIP]
-> TaskHub stores every schedule as a **5-field UTC cron** and translates it to each platform's native trigger at apply time. Design in cron, verify with crontab.guru.
+> Cronsole stores every schedule as a **5-field UTC cron** and translates it to each platform's native trigger at apply time. Design in cron, verify with crontab.guru.
 
 ---
 
 <p align="center">
   <a href="../README.md">← Resources</a> ·
   <a href="../../../README.md">Registry root</a> ·
-  <a href="https://mikesailab.com/taskhub-registry/">Browse the gallery</a>
+  <a href="https://mikesailab.com/cronsole-registry/">Browse the gallery</a>
 </p>
 
 <p align="right">(<a href="#scheduling-top">back to top</a>)</p>

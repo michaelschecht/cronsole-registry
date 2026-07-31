@@ -3,7 +3,7 @@
 <h1 align="center">🧰 Resources</h1>
 
 <p align="center">
-  <em>Curated external sources for finding, adapting, and collecting<br>automation templates for the TaskHub registry.</em>
+  <em>Curated external sources for finding, adapting, and collecting<br>automation templates for the Cronsole registry.</em>
 </p>
 
 <p align="center">
@@ -18,7 +18,7 @@
 Places to source scheduled-task and automation ideas — cron jobs, scripts, AI-agent routines, and workflow patterns — that can be adapted into [Registry v1](../../README.md#-template-schema-registry-v1) templates.
 
 > [!NOTE]
-> A TaskHub template is **target-agnostic** (a trigger + an action + `{{placeholders}}`) and runs **no-shell** by design. When adapting anything below, keep the command structured (`{executable, args[]}` or an explicit `cmd.exe /c` / `powershell -Command` opt-in) and pull user-specific bits out into parameters. See the [schema](../../README.md#-template-schema-registry-v1) before authoring, and **[open an issue](https://github.com/michaelschecht/taskhub-registry/issues)** to propose one.
+> A Cronsole template is **target-agnostic** (a trigger + an action + `{{placeholders}}`) and runs **no-shell** by design. When adapting anything below, keep the command structured (`{executable, args[]}` or an explicit `cmd.exe /c` / `powershell -Command` opt-in) and pull user-specific bits out into parameters. See the [schema](../../README.md#-template-schema-registry-v1) before authoring, and **[open an issue](https://github.com/michaelschecht/cronsole-registry/issues)** to propose one.
 
 ## 📂 Categories
 
@@ -37,14 +37,14 @@ Places to source scheduled-task and automation ideas — cron jobs, scripts, AI-
 1. Pick an automation and reduce it to a **command** + a **schedule**.
 2. Pull the machine-specific bits (paths, names, URLs) out into **`{{placeholders}}`** with `parameters`.
 3. Keep it **no-shell** where possible (`{executable, args[]}`); opt into a shell explicitly only for redirection/pipes (`cmd.exe /c "…"`, `powershell.exe -Command "…"`).
-4. Match the [Registry v1 schema](../../README.md#-template-schema-registry-v1), then **[open an issue](https://github.com/michaelschecht/taskhub-registry/issues)** to propose it — or import it into your own TaskHub via the [gallery](https://mikesailab.com/taskhub-registry/). See the [Template Guides](../guides/README.md) for the import/apply/export/update flow.
+4. Match the [Registry v1 schema](../../README.md#-template-schema-registry-v1), then **[open an issue](https://github.com/michaelschecht/cronsole-registry/issues)** to propose it — or import it into your own Cronsole via the [gallery](https://mikesailab.com/cronsole-registry/). See the [Template Guides](../guides/README.md) for the import/apply/export/update flow.
 
 ---
 
 <p align="center">
-  <a href="../../README.md">← TaskHub Template Registry</a> ·
+  <a href="../../README.md">← Cronsole Template Registry</a> ·
   <a href="../guides/README.md">Template Guides</a> ·
-  <a href="https://mikesailab.com/taskhub-registry/">Browse the gallery</a>
+  <a href="https://mikesailab.com/cronsole-registry/">Browse the gallery</a>
 </p>
 
 <p align="right">(<a href="#resources-top">back to top</a>)</p>

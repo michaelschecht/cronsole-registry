@@ -19,14 +19,14 @@ A template is just a blueprint. **Applying** it compiles the blueprint — with 
 1. In the **Templates** tab, find the template (built-in, or one you [imported](importing-templates.md)) and click **Apply**.
 2. Pick the **target** — where the task will run:
    - **Windows** — creates a real Windows Task Scheduler entry via the local agent.
-   - **TaskHub-native** — an HTTP job (webhook / health check) that TaskHub schedules and runs itself.
+   - **Cronsole-native** — an HTTP job (webhook / health check) that Cronsole schedules and runs itself.
 3. Give the task a **name** and confirm the **schedule** (the template's default cron is prefilled; presets and a human-readable preview help).
 4. Fill in the **parameters** — the `{{placeholders}}` the template declares (paths, names, URLs, options). Required ones are marked.
-5. Click **Create**. TaskHub substitutes your values server-side (per-token, no shell), registers the task on the target, and it shows up on your dashboard.
+5. Click **Create**. Cronsole substitutes your values server-side (per-token, no shell), registers the task on the target, and it shows up on your dashboard.
 
 ## Which targets can I apply to?
 
-Only targets TaskHub can **actually create on today** are selectable: **Windows** and **TaskHub-native**.
+Only targets Cronsole can **actually create on today** are selectable: **Windows** and **Cronsole-native**.
 
 A template may list other **compatible targets** (macOS, Claude Code, ChatGPT). Those are shown honestly as **"copy to set up manually"** — the Apply button is disabled with a note, because there's no compiler for them yet. You can still read the command and set it up yourself on that platform.
 

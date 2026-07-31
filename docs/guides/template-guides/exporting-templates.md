@@ -16,7 +16,7 @@ Export lowers your live catalog back into **[Registry v1](../../../README.md#-te
 
 ## From the app
 
-In the **Templates** tab, click **Export** — you get a JSON file of your whole catalog (a `{ taskhubCatalogVersion, exportedAt, templates: [...] }` bundle). Save it, edit it, or import it on another machine.
+In the **Templates** tab, click **Export** — you get a JSON file of your whole catalog (a `{ cronsoleCatalogVersion, exportedAt, templates: [...] }` bundle). Save it, edit it, or import it on another machine.
 
 ## Via the API
 
@@ -35,10 +35,10 @@ Each comes back as a `Content-Disposition` download.
 | Use case | How |
 |:---|:---|
 | **Back up your catalog** | Export the whole thing and keep the JSON somewhere safe. |
-| **Move to another machine** | Export on one TaskHub, [Import](importing-templates.md) on another. |
+| **Move to another machine** | Export on one Cronsole, [Import](importing-templates.md) on another. |
 | **Hand-edit a template** | `?id=x` → tweak the command/parameters → re-import (see [Updating](updating-and-managing-templates.md)). |
 | **Bulk-author with an agent** | Point an AI agent at the [schema](../../../README.md#-template-schema-registry-v1); it can draft or edit a bundle you then import. |
-| **Propose it to the registry** | Export, then **[open an issue](https://github.com/michaelschecht/taskhub-registry/issues)** with the JSON to add it to the public catalog. |
+| **Propose it to the registry** | Export, then **[open an issue](https://github.com/michaelschecht/cronsole-registry/issues)** with the JSON to add it to the public catalog. |
 
 > [!NOTE]
 > Export reads what you actually see (including templates you imported), and emits only round-trippable entries — so an export always re-imports cleanly.

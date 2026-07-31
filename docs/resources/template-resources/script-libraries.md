@@ -27,7 +27,7 @@
 <p align="center">
   <a href="../README.md">← Resources</a> ·
   <a href="../../../README.md">Registry root</a> ·
-  <a href="https://mikesailab.com/taskhub-registry/">Browse the gallery</a>
+  <a href="https://mikesailab.com/cronsole-registry/">Browse the gallery</a>
 </p>
 
 <p align="right">(<a href="#scripts-top">back to top</a>)</p>
