@@ -101,7 +101,7 @@ Each `templates/<id>.json` is a self-contained template:
 | `trigger` | The abstract schedule — `{ "kind": "schedule", "cron": "<5-field UTC cron>" }`. |
 | `commandTemplate` **or** `action` | What runs. `commandTemplate` is a command string with `{{placeholders}}`; the structured `action` form (`{ "kind": "exec", "program", "args": [] }`) is **no-shell** by design. |
 | `parameters` | The `{{placeholder}}` inputs a user fills in (key, label, type, required, options…). |
-| `compatibleTargets` | Where it *can* run (`windows`, `taskhub-native`, `macos`, `linux`, `claude-code`, `chatgpt`). Real only where a compiler exists. |
+| `compatibleTargets` | Where it *can* run (`windows`, `cronsole-native`, `macos`, `linux`, `claude-code`, `chatgpt`). Real only where a compiler exists. |
 
 > [!IMPORTANT]
 > Placeholders are substituted **server-side, per token**, and structured actions never touch a shell — a `{{placeholder}}` value is always exactly one argument to the intended program, so it can't inject a second command.
