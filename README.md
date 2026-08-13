@@ -21,7 +21,7 @@
 <p align="center">
   <a href="https://mikesailab.com/cronsole-registry/index.json"><img src="https://img.shields.io/badge/served_via-GitHub_Pages-2ea44f?style=for-the-badge&logo=githubpages&logoColor=white" alt="Served via GitHub Pages"></a>
   <img src="https://img.shields.io/badge/schema-Registry_v1-8B5CF6?style=for-the-badge" alt="Schema: Registry v1">
-  <a href="https://mikesailab.com/cronsole-registry/"><img src="https://img.shields.io/badge/templates-55-0078D4?style=for-the-badge" alt="55 templates"></a>
+  <a href="https://mikesailab.com/cronsole-registry/"><img src="https://img.shields.io/badge/templates-66-0078D4?style=for-the-badge" alt="66 templates"></a>
 </p>
 
 <p align="center">
@@ -51,7 +51,7 @@ A running Cronsole backend points `TEMPLATE_REGISTRY_URL` at that address, fetch
 | `.nojekyll` | Tells GitHub Pages to serve the files raw (no Jekyll processing). |
 | `.gitattributes` | Pins every file to **LF** line endings — the `sha256` is computed over exact bytes, so a CRLF rewrite would break every checksum. |
 
-Today the catalog holds **55 templates** — 20 parameterized script starters (PowerShell / Bash / Python / Node / executable / HTTP / …), use-case patterns (database backup, system cleanup, news digest, PR triage), the **Developer Pack** (git / npm / .NET / Docker), the **AI Pack** (Claude Code + Codex unattended runs), and an **Extended Pack** (system/backup/cleanup/monitoring/data/notification — service restart, folder-zip & robocopy backups, disk/ping monitors, rclone cloud sync, Discord webhook, and more).
+Today the catalog holds **66 templates in 8 packs** — 23 parameterized script starters (PowerShell / Bash / Python / Node / executable / HTTP / …), use-case patterns (database backup, system cleanup, news digest, PR triage), the **Developer Pack** (git / npm / .NET / Docker), the **AI Pack** (Claude Code + Codex unattended runs), an **Extended Pack** (system/backup/cleanup/monitoring/data/notification — service restart, folder-zip & robocopy backups, disk/ping monitors, rclone cloud sync, Discord webhook, and more), plus two families added 2026-08-13: **Cronsole Native** (jobs Cronsole schedules and runs itself — programs, scripts, HTTP uptime checks and heartbeats, no agent required) and **Claude Routines** (cloud-run Claude Code routines: issue triage, dependency review, CI digests, docs drift, standups).
 
 Each entry is flagged **`core`** or extended. A small curated **core** ships built into Cronsole and auto-syncs into every install by default; the rest are **extended** — browse them here and import the ones you want.
 
